@@ -1,4 +1,4 @@
-package in.projectdevelopment.ems.model;
+package in.projectdevelopment.ems.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -30,7 +30,7 @@ public class Employee {
 	private String lastName;
 	
 	
-	@Column(name="email_id	")
+	@Column(name="email_id")
 	private String emailId;
    
 }

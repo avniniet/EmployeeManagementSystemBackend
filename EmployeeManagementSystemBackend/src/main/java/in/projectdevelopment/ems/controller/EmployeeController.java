@@ -16,7 +16,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import in.projectdevelopment.ems.model.Employee;
+import in.projectdevelopment.ems.dto.EmployeeDTO;
+import in.projectdevelopment.ems.entity.Employee;
 import in.projectdevelopment.ems.service.EmployeeService;
 
 @CrossOrigin("*")
@@ -29,7 +30,6 @@ public class EmployeeController {
 	
 	@GetMapping("/employee")
 	public List<Employee> getAllEmployee(){
-		System.out.println("Get all employee controller");
 		return employeeService.getAllEmployee();
 	}
 	 
@@ -49,7 +49,7 @@ public class EmployeeController {
 	}
 	
 	@PutMapping("/employee/{id}")
-	public ResponseEntity<Employee> updateEmployee(@PathVariable Long id, @RequestBody Employee employeeDetails){
+	public ResponseEntity<Employee> updateEmployee(@PathVariable Long id, @RequestBody EmployeeDTO employeeDetails){
 		Employee updatedEmployee = employeeService.updateEmployee(id, employeeDetails);
 		return ResponseEntity.ok(updatedEmployee);
 		
