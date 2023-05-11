@@ -29,15 +29,17 @@ public class EmployeeController {
 	private EmployeeService employeeService;
 	
 	@GetMapping("/employee")
-	public List<Employee> getAllEmployee(){
-		return employeeService.getAllEmployee();
+	public ResponseEntity<List<Employee>> getAllEmployee(){
+		List<Employee> employeeList = employeeService.getAllEmployee();
+		return ResponseEntity.ok(employeeList);
 	}
 	 
 	//Create employee rest API
 	@PostMapping("/employee")
-	public Employee createEmployee(@RequestBody Employee employee) {	
+	public ResponseEntity<Employee> createEmployee(@RequestBody Employee employee) {	
 		
-		return employeeService.createEmployee(employee);
+		Employee newlyCreatedEmployee = employeeService.createEmployee(employee);
+		return ResponseEntity.ok(newlyCreatedEmployee);
 	}
 	
 	//get employee by id restAPI
